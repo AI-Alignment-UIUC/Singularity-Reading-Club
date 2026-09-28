@@ -1,71 +1,96 @@
-Singularity Reading Club
+# Singularity Reading Club
 
-AIA @ Illinois
+**AIA @ Illinois**
 
-![Alt text](./booksrc.png)
+![Singularity Reading Club](./booksrc.png)
 
-Reading List: 
-Evan — 6/21/25, 6:21 PM
-Superintelligence: Paths, Dangers, and Strategies by Nick Bostrom
+A running list of books, papers, stories, and other media on superintelligence, self-improving systems, and the singularity.
 
-Gödel, Escher, Bach: an Eternal Golden Braid by Douglas Hofstadter
+<p align="center"><img src="./images/collage.jpg" alt="Singularity Reading Club collage" width="480"></p>
 
-The Last Question (short story) by Isaac Asimov 
+**Contents:** [Nonfiction](#nonfiction) · [Fiction](#fiction) · [Papers](#papers) · [Essays, forecasts & online reading](#essays-forecasts--online-reading) · [Courses](#courses) · [Shows](#shows) · [Art](#art) · [Games](#games) · [Music](#music) · [Seminars](#seminars)
 
-Evan — 6/21/25, 7:12 PM
+---
 
-Nick Bostrom essays: https://nickbostrom.com/
+## Nonfiction
 
-Evan — 6/24/25, 9:01 PM
+| Title | Author |
+| --- | --- |
+| [Superintelligence: Paths, Dangers, Strategies](https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies) | [Nick Bostrom](https://nickbostrom.com/) |
+| [Gödel, Escher, Bach: an Eternal Golden Braid](https://en.wikipedia.org/wiki/G%C3%B6del,_Escher,_Bach) | [Douglas Hofstadter](https://en.wikipedia.org/wiki/Douglas_Hofstadter) |
+| Xenosystems | [Nick Land](https://en.wikipedia.org/wiki/Nick_Land) |
+| Complexity: A Guided Tour | [Melanie Mitchell](https://en.wikipedia.org/wiki/Melanie_Mitchell) |
+| [Gödel's Proof](https://en.wikipedia.org/wiki/G%C3%B6del%27s_Proof) | Ernest Nagel and James R. Newman |
+| [The Infinity Machine: Demis Hassabis, DeepMind, and the Quest for Superintelligence](https://www.penguinrandomhouse.com/books/752231/the-infinity-machine-by-sebastian-mallaby/) | Sebastian Mallaby |
+| [Theory of Self-Reproducing Automata](https://en.wikipedia.org/wiki/Von_Neumann_universal_constructor) | [John von Neumann](https://en.wikipedia.org/wiki/John_von_Neumann) |
 
-AI 2027 forecast: https://ai-2027.com/
+## Fiction
 
-Evan — 10/7/25, 1:35 PM
+| Title | Author |
+| --- | --- |
+| [The Last Question](https://en.wikipedia.org/wiki/The_Last_Question) (short story) | [Isaac Asimov](https://en.wikipedia.org/wiki/Isaac_Asimov) |
+| [The Three-Body Problem](https://en.wikipedia.org/wiki/The_Three-Body_Problem_(novel)) | [Cixin Liu](https://en.wikipedia.org/wiki/Liu_Cixin) |
+| [The Metamorphosis of Prime Intellect](https://en.wikipedia.org/wiki/The_Metamorphosis_of_Prime_Intellect) | Roger Williams |
+| [Neuromancer](https://en.wikipedia.org/wiki/Neuromancer) (plus the [Sprawl trilogy](https://en.wikipedia.org/wiki/Sprawl_trilogy) and [Burning Chrome](https://en.wikipedia.org/wiki/Burning_Chrome)) | [William Gibson](https://en.wikipedia.org/wiki/William_Gibson) |
+| [Accelerando](https://en.wikipedia.org/wiki/Accelerando) | [Charles Stross](https://en.wikipedia.org/wiki/Charles_Stross) |
 
-the Network State online book: https://thenetworkstate.com/
+## Papers
 
-Evan — 12/26/25, 7:06 AM
+Scalable oversight and alignment proposals:
 
-The Three Body Problem by Cixin Liu 
+- [Scalable agent alignment via reward modeling](https://arxiv.org/abs/1811.07871) (Leike et al., 2018)
+- [AI Safety via Debate](https://arxiv.org/abs/1805.00899) (Irving et al., 2018)
+- [Supervising strong learners by amplifying weak experts](https://arxiv.org/abs/1810.08575) (Christiano et al., 2018)
+- [An overview of 11 proposals for building safe advanced AI](https://arxiv.org/abs/2012.07532) (Hubinger, 2020)
+- [Recursively Summarizing Books with Human Feedback](https://arxiv.org/abs/2109.10862) (Wu et al., 2021)
+- [Measuring Progress on Scalable Oversight for Large Language Models](https://arxiv.org/abs/2211.03540) (Bowman et al., 2022)
+- [Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073) (Bai et al., 2022)
 
-Evan — 1/4/26, 1:47 PM
+## Essays, forecasts & online reading
 
-Xenosystems by Nick Land
+- [Nick Bostrom's essays](https://nickbostrom.com/)
+- [AI 2027](https://ai-2027.com/) forecast
+- [AI 2040](https://ai-2040.com/) forecast
+- [The Network State](https://thenetworkstate.com/) (online book) by Balaji Srinivasan
+- [When AI builds itself](https://www.anthropic.com/institute/recursive-self-improvement) by Anthropic
 
-Evan — 1/26/26, 10:38 AM
+## Courses
 
-Complexity: A Guided Tour by Melanie Mitchell
+- [Iliad Intensive course materials](https://www.lesswrong.com/posts/dWQnLi7AoKo3paBXF/the-iliad-intensive-course-materials), especially the sections on:
+  - Agent Foundations
+  - AI Safety via Debate
+  - Idealized Agency
 
-Evan — 2/14/26, 5:56 PM
+## Shows
 
-Gödel's Proof by Ernest Nagel and James R. Newman 
+- [Black Mirror](https://en.wikipedia.org/wiki/Black_Mirror), specifically:
+  - [S3E4: San Junipero](https://en.wikipedia.org/wiki/San_Junipero)
+  - [S2E4: White Christmas](https://en.wikipedia.org/wiki/White_Christmas_(Black_Mirror))
 
-Evan — 5/28/26, 8:05 AM
+## Art
 
-The Infinity Machine: Demis Hassabis, DeepMind, and the Quest for Superintelligence
+- [M. C. Escher](https://en.wikipedia.org/wiki/M._C._Escher) paintings and prints ([official gallery](https://mcescher.com/)), e.g. [Drawing Hands](https://en.wikipedia.org/wiki/Drawing_Hands), [Relativity](https://en.wikipedia.org/wiki/Relativity_(M._C._Escher)), [Ascending and Descending](https://en.wikipedia.org/wiki/Ascending_and_Descending), Metamorphosis II
 
-Evan — 7/14/26, 8:36 AM
+<p align="center"><img src="./images/escher-metamorphosis.jpg" alt="M. C. Escher, Metamorphosis II" width="400"></p>
 
-Theory of Self-Reproducing Automata by John von Neumann
-AI 2040 forecast: https://ai-2040.com/
+## Games
 
-Evan — 8/26/26, 9:04 PM
+- [Factorio](https://www.factorio.com/)
+- [Civilization VI](https://en.wikipedia.org/wiki/Civilization_VI)
+- [Minecraft](https://www.minecraft.net/)
+- [Magic: The Gathering](https://magic.wizards.com/)
 
-Anthropic: when AI builds itself
-Iliad Intensive course materials: https://www.lesswrong.com/posts/dWQnLi7AoKo3paBXF/the-iliad-intensive-course-materials
-   on Agent Foundations
-   on AI Safety via Debate
-   on Idealized Agency
-Scalable agent alignment via reward modeling (Leike et al., 2018).
-AI Safety via Debate (Irving et al., 2018).
-Recursively Summarizing Books with Human Feedback (Wu et al., 2021).
-Supervising strong learners by amplifying weak experts (Christiano).
-Measuring Progress on Scalable Oversight for LLMs (Bowman et al., 2022).
-Constitutional AI: Harmlessness from AI Feedback (Bai et al., 2022) 
-The Metamorphosis of the Prime Intellect by Roger Williams
-Neuromancer (+ Trilogy & Burning Chrome) by William Gibson
-Accelerando by Charles Stross 
+## Music
 
-Evan — 9/25/26, 11:39 AM
+- [Jon Hopkins](https://en.wikipedia.org/wiki/Jon_Hopkins)
+- [Flume](https://en.wikipedia.org/wiki/Flume_(musician))
+- [Yeat](https://en.wikipedia.org/wiki/Yeat)
+- [Brian Eno](https://en.wikipedia.org/wiki/Brian_Eno)
+- [Aphex Twin](https://en.wikipedia.org/wiki/Aphex_Twin)
+- [Daft Punk](https://en.wikipedia.org/wiki/Daft_Punk)
+- [A. G. Cook](https://en.wikipedia.org/wiki/A._G._Cook) / [Charli XCX](https://en.wikipedia.org/wiki/Charli_XCX)
+- [Metallica](https://en.wikipedia.org/wiki/Metallica)
 
-An overview of 11 proposals for building safe advanced AI, Evan Hubinger https://arxiv.org/abs/2012.07532 
+## Seminars
+
+- [Scalable oversight](./scalable%20oversight/history.md): outline and materials for the self-improving systems seminar
