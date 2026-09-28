@@ -94,3 +94,4 @@ Scalable oversight and alignment proposals:
 ## Seminars
 
 - [Scalable oversight](./scalable%20oversight/history.md): outline and materials for the self-improving systems seminar
+- [Recursive summary of past discussions](./discussions/recursive-summary.md): a layered summary of what the club has talked about so far
