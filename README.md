@@ -6,6 +6,8 @@
 
 A running list of books, papers, stories, and other media on superintelligence, self-improving systems, and the singularity.
 
+<p align="center"><img src="./images/collage.jpg" alt="Singularity Reading Club collage" width="480"></p>
+
 **Contents:** [Nonfiction](#nonfiction) · [Fiction](#fiction) · [Papers](#papers) · [Essays, forecasts & online reading](#essays-forecasts--online-reading) · [Courses](#courses) · [Shows](#shows) · [Art](#art) · [Games](#games) · [Music](#music) · [Seminars](#seminars)
 
 ---
@@ -67,7 +69,9 @@ Scalable oversight and alignment proposals:
 
 ## Art
 
-- [M. C. Escher](https://en.wikipedia.org/wiki/M._C._Escher) paintings and prints ([official gallery](https://mcescher.com/)), e.g. [Drawing Hands](https://en.wikipedia.org/wiki/Drawing_Hands), [Relativity](https://en.wikipedia.org/wiki/Relativity_(M._C._Escher)), [Ascending and Descending](https://en.wikipedia.org/wiki/Ascending_and_Descending)
+- [M. C. Escher](https://en.wikipedia.org/wiki/M._C._Escher) paintings and prints ([official gallery](https://mcescher.com/)), e.g. [Drawing Hands](https://en.wikipedia.org/wiki/Drawing_Hands), [Relativity](https://en.wikipedia.org/wiki/Relativity_(M._C._Escher)), [Ascending and Descending](https://en.wikipedia.org/wiki/Ascending_and_Descending), Metamorphosis II
+
+<p align="center"><img src="./images/escher-metamorphosis.jpg" alt="M. C. Escher, Metamorphosis II" width="400"></p>
 
 ## Games
 
