@@ -45,6 +45,9 @@ Scalable oversight and alignment proposals:
 - [Recursively Summarizing Books with Human Feedback](https://arxiv.org/abs/2109.10862) (Wu et al., 2021)
 - [Measuring Progress on Scalable Oversight for Large Language Models](https://arxiv.org/abs/2211.03540) (Bowman et al., 2022)
 - [Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073) (Bai et al., 2022)
+- [Concrete Problems in AI Safety](https://arxiv.org/abs/1606.06565) (Amodei et al., 2016)
+- [Risks from Learned Optimization in Advanced Machine Learning Systems](https://arxiv.org/abs/1906.01820) (Hubinger et al., 2019)
+- [Debate update: Obfuscated arguments problem](https://www.alignmentforum.org/posts/PJLABqQ962hZEqhdB/debate-update-obfuscated-arguments-problem) (Barnes, 2020)
 
 ## Essays, forecasts & online reading
 
@@ -93,5 +96,7 @@ Scalable oversight and alignment proposals:
 
 ## Seminars
 
-- [Scalable oversight](./scalable%20oversight/history.md): outline and materials for the self-improving systems seminar
+- Scalable oversight series (fall 2026):
+  - [Discussion 1: history and concepts](./scalable%20oversight/history.md): self-reproduction, self-reference and scale, from von Neumann to fractals
+  - [Discussion 2: comparing three proposals](./scalable%20oversight/discussion-2-topics.md): recursive reward modeling, AI safety via debate, and STEM AI / world models, with a [background primer](./scalable%20oversight/discussion-2-primer.md) that quotes the source papers
 - [Recursive summary of past discussions](./discussions/recursive-summary.md): a layered summary of what the club has talked about so far
