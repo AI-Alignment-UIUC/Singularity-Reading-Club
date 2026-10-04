@@ -4,9 +4,9 @@ New to these ideas? Start with the [primer](discussion-2-primer.md).
 
 Discussion 1 ([history.md](history.md)) deliberately stayed away from current methods. This session brings them in. We compare three of the proposals in Evan Hubinger's *An overview of 11 proposals for building safe advanced AI* (2020, [arXiv:2012.07532](https://arxiv.org/abs/2012.07532)):
 
-- **Recursive reward modeling (RRM)**: train a reward model from human feedback, then use agents trained on it to help humans evaluate the next, harder task. Hubinger pairs it with relaxed adversarial training (proposal 7).
-- **AI safety via debate**: two copies of a model argue opposite sides and a human judges who was more honest and helpful. Hubinger pairs it with transparency tools (proposal 8).
-- **STEM AI / world models**: train a model only on narrow math and science problems in a sandbox, with no data about humans, so it never learns to model or manipulate us (proposal 5). We stretch this to the broader idea of building a model of the world rather than an agent acting in it (compare Hubinger's microscope AI, proposal 4).
+- **Recursive reward modeling (RRM)**: train a reward model from human feedback, then use agents trained on it to help humans evaluate the next, harder task. Hubinger pairs it with relaxed adversarial training (proposal 8).
+- **AI safety via debate**: two copies of a model argue opposite sides and a human judges who was more honest and helpful. Hubinger pairs it with transparency tools (proposal 9).
+- **STEM AI / world models**: train a model only on narrow math and science problems in a sandbox, with no data about humans, so it never learns to model or manipulate us (proposal 6). We stretch this to the broader idea of building a model of the world rather than an agent acting in it (compare Hubinger's microscope AI, proposal 5).
 
 ## Priority readings
 
@@ -34,7 +34,7 @@ Suggested exercise: fill in the grid as a group before the open discussion, then
 
 3. **Errors that compound.** In RRM each generation of helper trains on the last generation's judgments, so small errors can stack. "When AI builds itself" describes the same loop in the real world. Does debate avoid this, or does the judge just become the weak link instead?
 
-4. **Is STEM AI oversight at all, or an escape from it?** STEM AI avoids the hard problem by never letting the model reason about humans. What do we give up? Hubinger's own worry is performance competitiveness: a STEM-only model can't help with governance or with aligning other AIs. Could a world model that answers questions, without acting, be a middle ground?
+4. **Is STEM AI oversight at all, or an escape from it?** STEM AI avoids the hard problem by never letting the model reason about humans. What do we give up? Hubinger's worry is that it could speed up building advanced AI "without also making it more likely that they will be aligned." A STEM-only model also can't help with governance. Could a world model that answers questions, without acting, be a middle ground?
 
 5. **The recursive self-improvement test.** Take Anthropic's scenario, where AI writes most of the code for the next AI. Which of the three methods could you actually deploy there today? What would each need to work?
 
