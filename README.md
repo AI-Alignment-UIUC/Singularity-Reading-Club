@@ -8,7 +8,15 @@ A running list of books, papers, stories, and other media on superintelligence, 
 
 <p align="center"><img src="./images/collage.jpg" alt="Singularity Reading Club collage" width="480"></p>
 
-**Contents:** [Nonfiction](#nonfiction) · [Fiction](#fiction) · [Papers](#papers) · [Essays, forecasts & online reading](#essays-forecasts--online-reading) · [Courses](#courses) · [Shows](#shows) · [Art](#art) · [Games](#games) · [Music](#music) · [Seminars](#seminars)
+**Contents:** [Seminars](#seminars) · [Nonfiction](#nonfiction) · [Fiction](#fiction) · [Papers](#papers) · [Essays, forecasts & online reading](#essays-forecasts--online-reading) · [Courses](#courses) · [Shows](#shows) · [Art](#art) · [Games](#games) · [Music](#music)
+
+
+## Seminars
+
+- Scalable oversight series (fall 2026):
+  - [Discussion 1: history and concepts](./scalable%20oversight/history.md): self-reproduction, self-reference and scale, from von Neumann to fractals
+  - [Discussion 2: comparing three proposals](./scalable%20oversight/discussion-2-topics.md): recursive reward modeling, AI safety via debate, and STEM AI / world models, with a [background primer](./scalable%20oversight/discussion-2-primer.md) that quotes the source papers
+- [Recursive summary of past discussions](./discussions/recursive-summary.md): a layered summary of what the club has talked about so far
 
 ---
 
@@ -93,10 +101,3 @@ Scalable oversight and alignment proposals:
 - [Daft Punk](https://en.wikipedia.org/wiki/Daft_Punk)
 - [A. G. Cook](https://en.wikipedia.org/wiki/A._G._Cook) / [Charli XCX](https://en.wikipedia.org/wiki/Charli_XCX)
 - [Metallica](https://en.wikipedia.org/wiki/Metallica)
-
-## Seminars
-
-- Scalable oversight series (fall 2026):
-  - [Discussion 1: history and concepts](./scalable%20oversight/history.md): self-reproduction, self-reference and scale, from von Neumann to fractals
-  - [Discussion 2: comparing three proposals](./scalable%20oversight/discussion-2-topics.md): recursive reward modeling, AI safety via debate, and STEM AI / world models, with a [background primer](./scalable%20oversight/discussion-2-primer.md) that quotes the source papers
-- [Recursive summary of past discussions](./discussions/recursive-summary.md): a layered summary of what the club has talked about so far
