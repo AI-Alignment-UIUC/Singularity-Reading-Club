@@ -1,5 +1,7 @@
 # Scalable Oversight, Discussion 2: Comparing Three Proposals
 
+New to these ideas? Start with the [primer](discussion-2-primer.md).
+
 Discussion 1 ([history.md](history.md)) deliberately stayed away from current methods. This session brings them in. We compare three of the proposals in Evan Hubinger's *An overview of 11 proposals for building safe advanced AI* (2020, [arXiv:2012.07532](https://arxiv.org/abs/2012.07532)):
 
 - **Recursive reward modeling (RRM)**: train a reward model from human feedback, then use agents trained on it to help humans evaluate the next, harder task. Hubinger pairs it with relaxed adversarial training (proposal 7).
