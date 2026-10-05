@@ -16,6 +16,7 @@ A running list of books, papers, stories, and other media on superintelligence, 
 - Scalable oversight series (fall 2026):
   - [Discussion 1: history and concepts](./scalable%20oversight/history.md): self-reproduction, self-reference and scale, from von Neumann to fractals
   - [Discussion 2: comparing three proposals](./scalable%20oversight/discussion-2-topics.md): recursive reward modeling, AI safety via debate, and STEM AI / world models, with a [background primer](./scalable%20oversight/discussion-2-primer.md) that quotes the source papers
+- [Theories of alignment](./theories%20of%20alignment/README.md): alignment methods compared on inner/outer alignment, scale invariance and competitiveness, with a summary of each paper and the [analysis criterion](./theories%20of%20alignment/criterion.md) behind it
 - [Recursive summary of past discussions](./discussions/recursive-summary.md): a layered summary of what the club has talked about so far
 
 ---
