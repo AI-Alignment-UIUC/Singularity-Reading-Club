@@ -54,8 +54,6 @@ Scalable oversight and alignment proposals:
 - [Measuring Progress on Scalable Oversight for Large Language Models](https://arxiv.org/abs/2211.03540) (Bowman et al., 2022)
 - [Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073) (Bai et al., 2022)
 - [Concrete Problems in AI Safety](https://arxiv.org/abs/1606.06565) (Amodei et al., 2016)
-- [Risks from Learned Optimization in Advanced Machine Learning Systems](https://arxiv.org/abs/1906.01820) (Hubinger et al., 2019)
-- [Debate update: Obfuscated arguments problem](https://www.alignmentforum.org/posts/PJLABqQ962hZEqhdB/debate-update-obfuscated-arguments-problem) (Barnes, 2020)
 
 ## Essays, forecasts & online reading
 
