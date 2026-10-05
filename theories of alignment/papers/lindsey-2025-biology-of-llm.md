@@ -62,6 +62,7 @@ None inside the paper. The method is applied prompt by prompt, not recursively. 
 There is one weak scale point in favor: "The language-independent circuits are more prominent in Claude 3.5 Haiku than in a smaller, less capable model" (Multilingual Circuits), which suggests that more capable models may share more abstract features rather than fewer. *Our read:* that is one comparison between two models, and says nothing about whether the abstractions stay *human-readable*.
 
 ### C2c. Error behavior: **?**
+*Regime (criterion 1.1):* No repeated step and one model, so there is no map. **?** stands.
 The reconstruction error and the three quarters of prompts without satisfying graphs are stated for one model. The paper does not report how either changes with scale *(as far as we could read)*.
 
 ### C2d. Phase transitions: **✗**

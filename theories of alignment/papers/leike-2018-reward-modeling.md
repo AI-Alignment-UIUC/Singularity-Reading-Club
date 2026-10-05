@@ -65,6 +65,7 @@ Evaluator of outcomes, assisted by earlier agents. In plain reward modeling the 
 *The weaker bet.* If the real requirement is only that the user can recognize "this step is acceptable and not deceptive" (the corrigibility-basin reading usually attributed to Christiano; secondary, not in this paper), RRM is in a worse position than amplification to use it, because the user judges *outcomes* and process feedback is optional and "might be difficult to provide in practice if the policy model is not very interpretable" (§7.5). *Our read:* RRM commits to an outcome-evaluation invariant, not an acceptability invariant.
 
 ### C2c. Error behavior across levels: **?**
+*Regime (criterion 1.1):* The correcting step is the user's evaluation at every level, which re-anchors each generation to a human. The per-level map is exactly the paper's open question, so the regime is unknown (thresholded if accumulation can be bounded, compounding if not). **?** stands.
 *Load-bearing assumption:* errors made by A<sub>k-1</sub> as an assistant are dampened rather than amplified when they shape A<sub>k</sub>'s reward.
 
 The authors raise this as the central open question and do not answer it:

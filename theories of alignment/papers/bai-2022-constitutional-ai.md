@@ -78,6 +78,7 @@ The constitution is also deliberately short: "We will finetune AI models to be h
 *Our read:* this is Evan's "invariant human function for selecting sub-solutions" in its most compressed form. The function is not a human; it is a short text plus whatever the evaluator reads into it. Fixing the text does not fix the function, because the meaning of "harmful" when evaluating a superhuman plan is not something the sixteen sentences determine. The counterpoint from Discussion 1 (higher-level questions differ in kind) applies with extra force: there is not even a noisy human in the loop to anchor the drift. Figure 4 shows evaluator *accuracy on human-labeled comparisons* rising with size, which is evidence of agreement with humans on questions humans can label, not of invariance on questions they cannot.
 
 **C2c. Error behavior across levels: ?**
+*Regime (criterion 1.1):* No levels are stacked and nothing re-anchors to humans, so there is no map. If generations were chained, the likely regime is compounding (our read). **?** stands.
 The paper does not stack levels, so it neither measures nor bounds compounding. *Our read:* if each generation's preference model inherits the previous evaluator's misreadings of the constitution, and the policy Goodharts that preference model (as §4.3 shows it can), errors plausibly compound, since nothing re-anchors to humans between generations. This is the same worry the primer raises for RRM.
 
 **C2d. Phase transitions: ✗**

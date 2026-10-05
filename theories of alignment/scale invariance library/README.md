@@ -64,12 +64,12 @@ When an alignment paper uses a phrase on the left, it is making a scale-invarian
 
 ## Suggestions for C2
 
-These are proposals for Evan. They are not in [criterion.md](../criterion.md) and change nothing until he approves them. Several overlap with amendments already pending there; the overlaps are noted.
+These are proposals for Evan. B was approved and is in [criterion.md](../criterion.md) as version 1.1; the others change nothing until he approves them. Several overlap with amendments already pending there; the overlaps are noted.
 
 | # | Suggestion | From | Overlaps |
 |---|---|---|---|
 | A | **C2b, ask direction by direction.** Name the deviations from the invariant that the method expects to wash out across levels (noise) and any that would grow (a consistent bias, a correlated blind spot). One growing direction caps C2b. | Wilson, Feigenbaum, Knill et al. | Pending #3 (split C2b by kind of invariant) |
-| B | **C2c, ask for the per-level error map.** Record whether the method has a correcting step at each level, what the error at level *n+1* is as a function of level *n*, and whether a threshold is known. Separate four behaviors: contracting, bounded by a threshold, compounding (αⁿ), and cascading upward (leaf accuracy doesn't set the ceiling). | von Neumann, Knill et al., Williamson, Lorenz | Pending #2 and #5 |
+| B | **Applied in criterion 1.1.** **C2c, ask for the per-level error map.** Record whether the method has a correcting step at each level, what the error at level *n+1* is as a function of level *n*, and whether a threshold is known. Separate four behaviors: contracting, bounded by a threshold, compounding (αⁿ), and cascading upward (leaf accuracy doesn't set the ceiling). | von Neumann, Knill et al., Williamson, Lorenz | Pending #2 and #5 |
 | C | **C2e, add incomplete similarity.** Besides exact versus statistical, ask whether the slope itself is stable or drifts with the gap, the domain or the overseer's level. A drifting slope is weaker than a noisy one. | Barenblatt, Kolmogorov 1962 | Pending #7 (slope changes sign across tasks) |
 | D | **C2f, a minimum standard for a scaling claim.** At least three gaps; the range stated; a fit test or a comparison against one alternative form; and, where possible, a data collapse. A claim that fails this caps at ? rather than ~. | Clauset et al., Stanley, Mandelbrot | Pending #7 |
 | E | **C2d, add off-curve failures.** Ask whether the largest failures could come from a different mechanism than the observed ones (dragon-kings), not only whether the trend continues. | Sornette, Anderson | Pending #6 (standard thresholds) |

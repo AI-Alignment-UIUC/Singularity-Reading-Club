@@ -61,6 +61,7 @@ None. Plain dialog is a single human–model interaction with no recursion. *Our
 The paper already shows this failing at a modest gap (confident acceptance of false claims, §4). *Our read:* as the gap widens, the non-expert's ability to catch errors by questioning should shrink, not stay fixed.
 
 ### C2c. Error behavior across levels: **?**
+*Regime (criterion 1.1):* One gap, no levels, so there is no map. **?** stands.
 There are no levels to stack. The paper measures one gap.
 
 ### C2d. Phase transitions: **?**

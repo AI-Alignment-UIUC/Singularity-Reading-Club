@@ -61,6 +61,7 @@ Unchanged: **argue and refute, recursing into one disputed sub-claim**, now with
 Irving et al. needed the judge's leaf verdict to be stable. This post shows a second invariant was also needed and fails: the honest debater's ability to choose which branch to challenge. In the RSA example that choice is as hard as factoring. *Our read:* this is the most important result for Evan's question. Even if the human's "this step is acceptable and not deceptive" function were perfectly invariant, debate would still fail here, because no step the human sees is wrong. The flaw lives in which steps get checked, and that choice belongs to a bounded model, not to the human.
 
 ### C2c. Error behavior across levels: **✗**
+*Regime (criterion 1.1):* **Compounding.** Small per-step errors add up across many steps, and refutation can't localize them, so the correcting step fails to fire. **✗** stands.
 *Load-bearing assumption:* small per-step error rates stay small when the argument grows.
 
 The construction works by spreading a small chance of error over many steps, so that the argument is false overall while each step is "probably true". The honest debater's best answer is itself probabilistic. *Our read:* this is error compounding with a sign flip. Per-step errors stay small, but the whole argument's error does not, and recursion cannot localize it. The post does not give a bound.
