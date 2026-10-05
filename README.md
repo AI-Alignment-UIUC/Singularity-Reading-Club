@@ -53,7 +53,6 @@ Scalable oversight and alignment proposals:
 - [Recursively Summarizing Books with Human Feedback](https://arxiv.org/abs/2109.10862) (Wu et al., 2021)
 - [Measuring Progress on Scalable Oversight for Large Language Models](https://arxiv.org/abs/2211.03540) (Bowman et al., 2022)
 - [Constitutional AI: Harmlessness from AI Feedback](https://arxiv.org/abs/2212.08073) (Bai et al., 2022)
-- [Concrete Problems in AI Safety](https://arxiv.org/abs/1606.06565) (Amodei et al., 2016)
 
 ## Essays, forecasts & online reading
 
