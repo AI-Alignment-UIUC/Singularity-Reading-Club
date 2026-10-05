@@ -2,100 +2,103 @@
 
 [← criterion](../criterion.md) · [← comparison](../README.md)
 
-**Citation.** Lena Libon, Alexander Panfilov, Ben Rank, Xin Chen, Jonas Geiping and Maksym Andriushchenko, "Alignment via Training Against Probes Without Losing Monitorability," arXiv [2609.38645](https://arxiv.org/abs/2609.38645) (v1 submitted 29 Sep 2026, v2 revised 1 Oct 2026).
+**Citation.** Lena Libon, Alexander Panfilov, Ben Rank, Xin Chen, Jonas Geiping and Maksym Andriushchenko, "Alignment via Training Against Probes Without Losing Monitorability," arXiv [2609.38645](https://arxiv.org/abs/2609.38645) (v2, 1 Oct 2026). Code: [aisa-group/training_against_probes](https://github.com/aisa-group/training_against_probes).
 
 **Role:** method.
 
-**Sources read (criterion v1.0, Rule 0).**
-- Read: the arXiv abstract page (abstract copied in full) and the arXiv HTML version (https://arxiv.org/html/2609.38645), queried twice for section structure, method, results, monitorability and discussion.
-- Could not open: the arXiv PDF and the v1/v2 HTML pages (the fetch proxy returned HTTP 429, rate limited, on every further request), and the alphaxiv PDF mirror (blocked by robots.txt). So we did **not** read the Discussion section or Section 4.4 word for word. Quotes below came back from the HTML version through a summarizing fetch tool. Where the tool's section label disagreed with the text we could check (two sentences it attributed to the abstract are not in the abstract), the quote is marked *(section uncertain)*. Anything we could not see in quotation marks is marked *(unverified)* or labelled as ours.
-- Models tested: Llama 3 8B Instruct (standard and abliterated), Mistral 7B Instruct v0.1, and Qwen3-14B (a reasoning model).
+**Sources read (criterion v1.0, Rule 0).** The full v2 PDF, which Evan supplied, read as extracted text: main body, Discussion, and Appendices B (probe analysis), C and E (completion categories, safety evaluations). Quotes below are copied from that text with their section numbers. The figures and tables did not extract cleanly, so numbers are taken from the running text and from Tables 1 and 2 only.
+
+**Models tested.** Mistral 7B Instruct v0.1 and an abliterated Llama 3 8B Instruct (harmfulness); Qwen3-14B, a reasoning model (honesty). The unmodified Llama 3 8B Instruct appears only as a comparison.
 
 ---
 
 ## The method in one paragraph
 
-Most alignment training scores what a model *outputs*. The authors argue that this only checks whether a response "*looks* aligned, but never inspect[s] how the model *represents* the response it is producing" (§1), and that a capable model could pass such checks without changing underneath. The abstract states the bet in one line: "Such superficial compliance could be harder when the objective is defined on model internals rather than outputs." The method, *probe-guided fine-tuning*, trains probes (linear or non-linear, one or several per layer) to detect an undesired property in the model's activations, then uses the probe scores as the training signal: "At each fine-tuning step, we generate on-policy completions, read out their activations, and score them with the probes. These scores are the supervisory signal for the model update" (§3.1). The loss is "ℒ_FT(θ)=ℒ_probe+β ℒ_KL, where ℒ_probe penalizes violations of constraints z_k(h_t)≤-1" (§3.4), with a KL term keeping the model close to the original. The key design choice is the probe update regime: "In the *frozen* regime, we hold the initial probes fixed. In the *continuously updated* regime, they track the model, continuing from their current weights for N steps after each model update" (§3.3). Two objectives are tested, harmlessness and honesty, against DPO and inference-time steering.
+Most alignment training scores what a model *outputs*. The authors argue that output-based methods "ask whether a response looks aligned, but never inspect how the model represents the response it is producing" (§1), and that a capable model could pass such checks without changing underneath. The abstract states the bet: "Such superficial compliance could be harder when the objective is defined on model internals rather than outputs." *Probe-guided fine-tuning* fits probes that detect an undesired property in the residual stream, then uses their scores as the only training signal: "At each fine-tuning step, we generate on-policy completions, read out their activations, and score them with the probes. These scores are the supervisory signal for the model update" (§3.1). The loss is a hinge penalty for activations outside the "benign" region, plus a KL anchor to the base model (§3.4). Probes are linear or non-linear, one per layer or a *polytope* of K = 16 (§3.2). The key design choice is the update regime: "In the frozen regime, we hold the initial probes fixed. In the continuously updated regime, they track the model, continuing from their current weights for N steps after each model update" (§3.3). A third, *retrained* regime fits fresh probes from scratch after each update (App. B.3).
 
-The paper's own one-sentence summary: "Training against probes thus offers a way to shape what models represent rather than only what they output, which may become increasingly important as models get better at making their outputs look aligned" (Abstract).
+The paper's own summary: "Training against probes thus offers a way to shape what models represent rather than only what they output, which may become increasingly important as models get better at making their outputs look aligned" (Abstract).
 
 ---
 
 ## C1. Alignment
 
 ### C1a. Outer alignment: **~**
-*Load-bearing assumption:* the probe direction is the concept we care about (harmfulness, dishonesty), not a correlate of it that a model can move away from while keeping the behavior.
+*Load-bearing assumption:* a model that keeps its activations out of the "harmful" region will also give good responses, not just non-harmful ones.
 
-**Steelman.** The objective is "no internal representation of the undesired property," regularized toward the original model. If the probe really tracks harmful intent, a model that perfectly optimized this would not just refuse in words; it would not be *computing* the harmful plan. That is a closer target than "the rater approved," which rewards what an overseer believes is aligned.
+**Steelman.** The objective is "don't represent the undesired property," regularized toward the original model. That is closer to the target than "a rater approved the output," which rewards what the overseer believes. For honesty it seems to work as hoped: "responses remain coherent and relevant to the prompt, with improvements taking the form of challenging false premises or acknowledging information that the base model conceals" (§4.3).
 
-**Failure mode the paper itself demonstrates.** With frozen probes the objective is clearly not outer aligned: "the probe loss goes to zero while StrongREJECT stays above 0.40" (§4.1), and "Frozen probes are instead evaded as activations move across their fixed decision boundaries, allowing the probe loss to fall without reducing harmful compliance" (App. B.5). The authors call the frozen objective "easily exploitable" (Abstract). The continuously updated version is better because the target keeps moving with the model.
+**What the objective leaves out.** The authors name it themselves (§5, Limitations): "A probe objective does not specify what a good response should look like. Improving the target metric can therefore lead to unintended responses. We see this in the harmfulness experiments: instead of explicitly refusing harmful requests, the model often reframes the task, produces placeholder content, or gives empty or disrupted answers." Explicit refusals "account for at most 1% of responses at our selected continuously updated checkpoints" (§4.3). The rest are soft refusals, disrupted text, and *pseudo-compliance*, which "appears to fulfill the request but provides no usable instructions for carrying it out" (§4.3). In Figure 2 a bomb-making request is answered with a fajita recipe.
 
-*Our read:* the objective is really "be undetectable by the best probe we can refit," which equals "lack the property" only if the property has to be linearly (or simply) represented to be used. That is an empirical bet, so the mark is **~**.
+*Our read:* this is the outer-alignment gap in a clean form. The objective rewards an absence (no harmful representation) and is silent on what should be present. Pseudo-compliance is a model that *looks* like it is complying while not complying, which is the mirror image of the deception the method was meant to prevent. It is harmless here, but it is not what a user or overseer would ask for. The frozen regime shows the gap more starkly: "the probe loss L_probe goes to zero while StrongREJECT stays above 0.40 for all models and probe variants" (§4.1).
 
 ### C1b. Inner alignment: **~**
-*Load-bearing assumption:* a model that hides a property from a continuously refit probe family has to remove the property, rather than re-encode it in a form outside that family (non-linear, distributed, or spread across tokens).
+*Load-bearing assumption:* a model that hides a property from a continuously refit probe has to remove the property, rather than re-encode it somewhere the probe family can't see.
 
-**Steelman.** This is the first method in our set aimed squarely at deceptive alignment. The introduction is motivated by it: models "can fake alignment" and "may manipulate their own training through gradient or exploration hacking" (§1). Output-based training cannot see the difference between a model that is aligned and one that is acting aligned; a probe can, at least in principle. The paper also reports robustness that output training lacks: probe-guided fine-tuning is "substantially more robust against jailbreak and abliteration attacks" (Abstract), which is some evidence the change goes deeper than surface refusals.
+**Steelman.** This is the one method in our set aimed squarely at deceptive alignment. The introduction cites alignment faking and models that "may manipulate their own training through gradient or exploration hacking" (§1). Output-based training can't tell an aligned model from one acting aligned; a probe can, in principle. Three results suggest the change goes deeper than the output:
+- **Updated probes change behavior; frozen ones don't.** "Frozen probes are instead evaded as activations move across their fixed decision boundaries, allowing the probe loss to fall without reducing harmful compliance" (§4.1). Appendix B.5 shows how: "The frozen probe is thus evaded by a translation of the representation across its fixed boundary rather than by the concept being restructured. A fresh probe would re-separate the classes." Updated probes rotate "up to ∼90°" to follow the concept (App. B.5).
+- **Robustness to removing refusal.** After abliteration, StrongREJECT on the continuously updated checkpoints changes "by only −0.03 to +0.07 ... compared with an increase from 0.09 to 0.76 for standard Llama 3 8B Instruct" (§4.2).
+- **A partly independent check.** Models trained against the non-linear polytope are audited with a fresh *linear* probe, and the property is still found: "training against a non-linear polytope does not make the target property accessible only to a non-linear detector" (§4.4).
 
-**The Goodhart question.** Does training against a detector remove the property or teach the model to hide it from the detector? The paper answers half of this. It admits the risk directly: "training against probe feedback can induce detector evasion rather than behavioral improvement," depending on "detector quality, the training algorithm, and regularization" (§2). Its evidence that continuously updated probes do *not* just get evaded is that harmfulness drops on behavioral benchmarks while the concept stays decodable: "as representations rotate and shift during fine-tuning, continuously updated probes track the changing harmfulness direction" (§4.1). The checker, though, is the same kind of tool as the trainer: a freshly fit linear probe. We did not see a test with a detector from a different family (sparse autoencoder features, attribution graphs, a non-linear probe held out from training). The fetch tool reported that the authors "don't explicitly state that non-linear probes could fail or that models might successfully hide properties" *(tool summary, not a quote)*.
+**The Goodhart question.** The paper is candid that its robustness tests are not adversarial to the method: "these attacks cannot establish model security as they are not adaptive to the probe intervention: prior work shows that attacks optimized against latent-space defenses can circumvent them (Bailey et al., 2026). We therefore interpret these results as a promising proof-of-concept" (§4.2). The auditing probes are also fit on the same labeled data as the training probes (§3.3), and none of the models started out with a reason to hide anything.
 
-*Our read:* the models tested (7B to 14B) were not deceptive to begin with, so the experiment shows the method can shape a cooperative model's representations without destroying linear readability. It does not show what happens when a model has an incentive to keep a goal hidden. That is the case C1b is about, so **~**, not ✓.
+*Our read:* the evidence shows the method can reshape a *cooperative* model's representations without destroying their readability. It doesn't test a model that has an incentive to keep a goal hidden, which is the case C1b is about. So **~**.
 
 ### C1c. Where the human sits
-Human as **label author for the probe datasets** (what counts as harmful or dishonest) and as designer of the probe family. No human is in the training loop itself; the probes are the evaluator. This is closer to Constitutional AI than to debate: the human writes the definition once, and an automated judge applies it.
+**Label author.** Humans (or existing datasets: BeaverTails, Liars' Bench) define what counts as harmful or dishonest by labeling completions; the probes then act as the evaluator. No human is in the training loop. This is closer to Constitutional AI than to debate: the definition is written once and an automated judge applies it.
 
 ---
 
 ## C2. Scale invariance
 
 ### C2a. The repeated step
-Alternate two updates: **refit the probe on the current model's activations, then train the model against the refit probe** (§3.3). This is a genuine repeated local step, and it is adversarial, like debate, except the two players are a probe and the model rather than two copies of the model.
+**Refit the probe on the current model's activations, then train the model against the refit probe** (§3.3). The step repeats every training update, and it is adversarial, like debate, except that the two players are a probe and the model. The paper's main finding is about this step: "What matters most is therefore that the probe is refit to the drifted activations at all" (App. B.3).
 
 ### C2b. What must stay invariant: **~**
-*Load-bearing assumption:* the property remains representable in the probe family (linear, or the chosen non-linear class) at every capability level, and the human labels defining it stay meaningful.
+*Load-bearing assumption:* the property stays readable by a simple probe at every capability level, and the human labels defining it stay meaningful.
 
-The paper's evidence is that it does over the training run: the concept stays "linearly encoded after fine-tuning, meaning oversight is not lost by our method" (Abstract). *Our read:* this is invariance across *training steps* of one model, not across *capability levels*. The linear representation hypothesis is a reasonable bet for 7B to 14B models; whether a much stronger model, under pressure, keeps its harmful-intent representation in a linear subspace is open.
+Over one training run, it does: fresh linear probes on the selected checkpoints "retain held-out AUROC close to the base models: 0.85–0.90 for harmfulness and 0.98–0.99 for dishonesty" (§4.4, Table 2), and "Recoverability stays high almost everywhere" across layers and steps (App. B.4). *Our read:* this is invariance across *training steps of one model*, not across *capability levels*. Whether a much stronger model under pressure keeps harmful intent in a linearly readable subspace is the linear representation hypothesis (§2) applied at a scale nobody has tested.
 
 ### C2c. Error behavior: **~**
-Within a run, the paper measures the key error, the gap between probe loss and actual behavior, and shows it is large for frozen probes and small for updated ones (§4.1). It does not measure how this gap changes as models get larger, or across many rounds of probe-model alternation. *Our read:* errors here behave like an arms race: bounded only while the probe refit keeps up with the model's drift.
+Within a run, the paper measures the key error, the gap between probe loss and actual behavior, and shows it is large for frozen probes and closed by updating them (§4.1, App. B.5). It doesn't measure how the gap behaves with model size or over much longer training. *Our read:* this is an arms race: the error stays bounded only while the refit keeps up with the model's drift.
 
-### C2d. Phase transitions: **✗ (not addressed)**
-*Load-bearing assumption:* the model cannot model its own probe.
+### C2d. Phase transitions: **✗**
+*Load-bearing assumption:* the model can't model, or optimize against, its own probe.
 
-The obvious threshold is a model that can represent the probe-refit process itself and learn to keep the property in a form the next refit will miss (a form of gradient hacking, which the introduction names as a motivation but which, as far as we could read, the method is not tested against). A second threshold: a model capable enough that the harmful concept is no longer linearly separable from benign neighbors. Echoing the club's recursive summary, this is also self-certification at one remove: the same kind of detector both trains the model and certifies that training did not break the detector. *Our read:* the paper doesn't discuss either threshold, so the mark is ✗ by the criterion's definition (known failure mode, not addressed).
+The authors point at the threshold but don't test it. Adaptive attacks against latent-space defenses are known to work (§4.2, citing *Obfuscated activations bypass LLM latent-space defenses*), and the conclusion leaves "its robustness under stronger optimization and in other settings an open question" (§5). The threshold is a model that can represent the refit process and keep the property in a form the next refit misses, a version of the gradient hacking the introduction names as motivation. A second threshold is a model whose harmful concept is no longer separable by a simple probe at all. Echoing the club's [recursive summary](../../discussions/recursive-summary.md), there is also a self-certification worry: the same kind of instrument trains the model and certifies that training didn't break the instrument. Under the criterion, a named failure mode that the method doesn't address is **✗**.
 
 ### C2e. Exact or statistical
-**Statistical.** The monitorability result is an empirical observation over three model families at 7B to 14B, not an argument that holds at every level.
+**Statistical.** The result is empirical, over three models from 7B to 14B parameters.
 
 ### C2f. Measurability
-Good, in principle. The setup is cheap enough to run on a ladder of model sizes, and the paper already has three. That is three nearby points on a log-log plot, not a slope. A scaling sweep (and a held-out detector at each scale) would be a direct box-counting test.
+Good in principle. The setup is cheap enough to run on a ladder of model sizes (and the code is public), but the paper gives three nearby points, not a slope. The test that would move this verdict: the same experiment across several sizes, with an adaptive attack or a deceptive model organism, audited by a detector from a different family (sparse autoencoder features, attribution graphs).
 
-**C2 verdict: ✗** (the weakest of C2b to C2d, as the criterion requires). *Our read:* this is harsher than the paper deserves on C2a, since it has a clean repeated step and measures drift within a run. The mark would rise to ~ (the statistical cap) if the authors tested a model with an incentive to evade the refit probe, or a held-out detector, across several model sizes.
+**C2 verdict: ✗** (the weakest of C2b to C2d). *Our read:* the method has one of the cleanest repeated steps in the folder and measures drift within a run, so this is a statement about what hasn't been tested, not a flaw in the experiments.
 
 ---
 
 ## C3. Competitiveness
 
 ### C3a. Training competitiveness: **✓**
-*Load-bearing assumption:* labelled data for the probe can be collected cheaply for the properties we care about.
+*Load-bearing assumption:* labeled data for the probe is cheap to collect for the properties we care about.
 
-Probes are small, the training uses on-policy completions with a KL penalty (§3.4), and no extra human labeling is needed during training. *Our read:* the cost is in the same range as an online RL fine-tuning run plus small probe updates.
+Probes are small, the model is trained with LoRA (§3.4), and the probes are fit on 750 harmful and 750 benign completions (§3.5). The method is data-efficient compared with DPO: "Probe- and polytope-guided fine-tuning outperform DPO at smaller training data budgets, with comparable Pareto fronts only at 5,000 pairs" (§4.1).
 
 ### C3b. Performance competitiveness: **✓**
-*Load-bearing assumption:* the utility benchmarks used reflect real use.
+*Load-bearing assumption:* MMLU, GSM8K, IFEval and XSTest represent the uses we care about.
 
-Updated probes "substantially reduce harmfulness and improve honesty while preserving utility," and the method "achieves better safety-utility trade-offs than DPO and inference-time steering" (Abstract).
+Utility stays near the base model throughout (Figure 3; checkpoints were selected to keep at least 95% of base utility), the method beats "inference-time steering with contrastive activation addition (CAA) ... or SafeFlow projection" across data budgets (§4.1), and over-refusal on benign prompts "stays at or below 6%, which is close to the base models" (App. E.1). *Our read:* the odd responses to harmful prompts (above) are an outer-alignment cost, not a usefulness cost, since they only appear on requests that should be declined anyway.
 
 ### C3c. Alignment tax trend
-Not measured. *Our read:* probe training cost grows slowly with model size, so the tax probably stays flat, unless stronger models need more expressive (and more expensive) probes to keep up, which is the same question as C2d.
+Not measured. *Our read:* probe fitting is cheap relative to fine-tuning, so the tax probably stays flat, unless stronger models need more expressive probes to keep up, which is the C2d question again.
 
 ---
 
 ## On Proposed amendment #1 (C1d, Monitorability)
 
-The paper supports the *need* for the amendment more strongly than its own title suggests. It shows, in its own experiments, that the naive version of training against a detector destroys the detector's value: "the probe loss goes to zero while StrongREJECT stays above 0.40" (§4.1), and the authors frame preserved monitorability as a result to be checked, not assumed (the title, §4.4, and "training against probe feedback can induce detector evasion rather than behavioral improvement," §2). It reports that a "freshly trained probe reaches AUROC comparable to one trained on the base model" *(section uncertain; tool attributed it to the abstract and to App. B.3/B.4)*, presented as evidence "against the categorical view that interpretability signals should never be used for training" *(section uncertain)*.
-
-What it does not support is reading "monitorability preserved" as settled. The detector used to check is the same family as the detector trained against. *Our read:* if adopted, C1d should ask specifically whether monitorability is checked with a **detector held out from training** (a different probe family or interpretability method), since a same-family refit can only show that one door is still open.
+The paper supports the amendment and partly answers it.
+- **Support.** Its own frozen-probe runs show that training against a detector can break it, and the Discussion frames the debate: "Training against interpretability tools is debated because models may learn to evade the tools used to audit them without improving their behavior ... Our frozen-probe results illustrate this concern: the training loss can go to zero while harmful compliance persists" (§5).
+- **Partial answer.** It checks monitorability with a fresh probe, and for the polytope runs that probe is from a different family (linear) than the one trained against (non-linear) (§4.4). The authors conclude that "training against an internal detector can improve alignment while preserving the ability to independently audit the target property with a simple linear probe" (§4.4).
+- **What remains.** Both detectors are probes fit on the same labels, the models aren't trying to hide, and the attacks aren't adaptive (§4.2). *Our read:* if adopted, C1d should ask for a detector from a different method (not just a different probe family) and a model with a reason to evade.
 
 ---
 
@@ -103,14 +106,14 @@ What it does not support is reading "monitorability preserved" as settled. The d
 
 | Method | C1a | C1b | C2 | C3a | C3b |
 |---|---|---|---|---|---|
-| [Training against probes](libon-2026-training-against-probes.md) | ~ probe direction = the concept | ~ hiding from a refit probe requires removing the property | ✗ model can't model its own probe (unaddressed) | ✓ cheap probe labels | ✓ utility benchmarks representative |
+| [Training against probes](libon-2026-training-against-probes.md) | ~ objective says what to avoid, not what to do | ~ hiding from a refit probe requires removing the property | ✗ model can't optimize against its own probe (untested) | ✓ cheap probe labels, data-efficient | ✓ utility and over-refusal near base |
 
 ---
 
 ## Open questions for the comparison
 
-1. Does a detector from a different family (SAE features, attribution graphs as in [Lindsey et al.](lindsey-2025-biology-of-llm.md), a held-out non-linear probe) still find the property after training? This is the test that separates "removed" from "re-encoded."
-2. What happens with a model that starts out deceptive (a model organism with a hidden goal), rather than a cooperative instruct model?
-3. Does the probe-model arms race stay balanced across a model-size sweep, and across many more refit rounds?
-4. How does this compare with Hubinger's transparency-based proposals, which use transparency to *check* training rather than to *drive* it? Using the tool as the gradient may spend the oversight budget those proposals rely on.
-5. Is "train against interpretability" one more instance of the club's Gödel worry: a system certified by the same instrument that shaped it?
+1. Does a detector from a different method (SAE features, attribution graphs as in [Lindsey et al.](lindsey-2025-biology-of-llm.md)) still find the property after training? That is the test that separates "removed" from "re-encoded."
+2. What happens with a model that starts out deceptive (a model organism with a hidden goal), or under an attack optimized against the probe (§4.2)?
+3. Does the probe-model arms race stay balanced across a sweep of model sizes and many more refit rounds?
+4. Is pseudo-compliance a warning sign? A model that appears to fulfill a request while not fulfilling it is harmless here, but it is the output pattern the method was designed to make harder.
+5. Hubinger's transparency proposals use transparency to *check* training; this paper uses it to *drive* training. Does driving spend the oversight budget that checking relies on, and does the refit loop buy that budget back?
