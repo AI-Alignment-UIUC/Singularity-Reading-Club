@@ -8,11 +8,11 @@ A comparison of alignment methods under three criteria: **inner and outer alignm
 
 ## The criterion in brief
 
-The full version, with its change policy, is in [criterion.md](criterion.md) (version 1.0). It changes only with Evan's permission; suggestions from new papers are logged there as [proposed amendments](criterion.md#proposed-amendments).
+The full version, with its change policy, is in [criterion.md](criterion.md) (version 1.1). It changes only with Evan's permission; suggestions from new papers are logged there as [proposed amendments](criterion.md#proposed-amendments).
 
 **C1. Alignment.** *Outer:* if a model perfectly optimized this objective, would we be happy with it? *Inner:* does training actually produce a model pursuing that objective, rather than a proxy or a deceptive mesa-optimizer? We also record where the human sits.
 
-**C2. Scale invariance.** Does the safety argument have the same form at every capability level? We ask six things: what single step the method repeats; what must stay invariant for that step to keep working (usually some piece of human judgment); whether errors shrink, stay bounded or compound across levels; which capability thresholds change the argument in kind (phase transitions); whether the self-similarity is exact, like the Sierpinski triangle, or only statistical, like a coastline; and whether it can be measured at several scales. This criterion comes from [Discussion 1](../scalable%20oversight/history.md), the closing question of the [recursive summary](../discussions/recursive-summary.md), and Evan's point that amplification tries to learn an invariant human way of selecting sub-solutions.
+**C2. Scale invariance.** Does the safety argument have the same form at every capability level? We ask six things: what single step the method repeats; what must stay invariant for that step to keep working (usually some piece of human judgment); whether errors shrink, stay bounded or compound across levels (the per-level error map and its regime: contracting, thresholded, compounding or cascading); which capability thresholds change the argument in kind (phase transitions); whether the self-similarity is exact, like the Sierpinski triangle, or only statistical, like a coastline; and whether it can be measured at several scales. This criterion comes from [Discussion 1](../scalable%20oversight/history.md), the closing question of the [recursive summary](../discussions/recursive-summary.md), and Evan's point that amplification tries to learn an invariant human way of selecting sub-solutions.
 
 **C3. Competitiveness.** *Training:* can a lab with a lead afford it? *Performance:* would the result meet the use cases for advanced AI? We also ask whether the alignment tax grows with capability.
 
@@ -86,7 +86,7 @@ Cells are copied from each summary's verdict line. Rows are grouped by the step 
 
 **Where the summaries disagree:**
 - *Debate's inner alignment.* Irving et al. get ✗ (a known failure, not addressed); the Barnes summary gets ? because the post is silent on it; Hubinger's P9 gets ~ because he adds transparency tools. All three are correct under the criterion; they grade different versions.
-- *How a ? combines into C2.* The amplification and RRM summaries both have C2c at ? and report C2 as ~. Recursive summarization has C2c at a measured ✗, so C2 is ✗ under the strict rule, although its summary argues the failure may come from a weak policy. Criterion 1.0 doesn't say how ? combines; this is [proposed amendment 2](criterion.md#proposed-amendments).
+- *How a ? combines into C2.* The amplification and RRM summaries both have C2c at ? and report C2 as ~. Recursive summarization has C2c at a measured ✗, so C2 is ✗ under the strict rule, although its summary argues the failure may come from a weak policy. The criterion (1.1) still doesn't say how ? combines; this is [proposed amendment 2](criterion.md#proposed-amendments).
 - *What the invariant is.* The amplification summary needs a whole selection function, the RRM and debate summaries a smaller judgment, and the Hubinger summary only a basin. That ordering is synthesis point 1; it hasn't been settled.
 
 ---

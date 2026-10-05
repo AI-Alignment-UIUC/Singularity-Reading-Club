@@ -59,6 +59,7 @@ The paper's own summary: "Training against probes thus offers a way to shape wha
 Over one training run, it does: fresh linear probes on the selected checkpoints "retain held-out AUROC close to the base models: 0.85–0.90 for harmfulness and 0.98–0.99 for dishonesty" (§4.4, Table 2), and "Recoverability stays high almost everywhere" across layers and steps (App. B.4). *Our read:* this is invariance across *training steps of one model*, not across *capability levels*. Whether a much stronger model under pressure keeps harmful intent in a linearly readable subspace is the linear representation hypothesis (§2) applied at a scale nobody has tested.
 
 ### C2c. Error behavior: **~**
+*Regime (criterion 1.1):* The correcting step is the probe refit, repeated through training. The regime is **thresholded**: the probe-behavior gap stays bounded only while the refit keeps pace with the model's drift. It is measured within runs, not across model sizes. **~** stands.
 Within a run, the paper measures the key error, the gap between probe loss and actual behavior, and shows it is large for frozen probes and closed by updating them (§4.1, App. B.5). It doesn't measure how the gap behaves with model size or over much longer training. *Our read:* this is an arms race: the error stays bounded only while the refit keeps up with the model's drift.
 
 ### C2d. Phase transitions: **✗**
