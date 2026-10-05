@@ -1,7 +1,5 @@
 # Singularity Reading Club
 
-**AIA @ Illinois**
-
 ![Singularity Reading Club](./booksrc.png)
 
 A running list of books, papers, stories, and other media on superintelligence, self-improving systems, and the singularity.
