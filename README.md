@@ -77,6 +77,7 @@ Scalable oversight and alignment proposals:
 - [Black Mirror](https://en.wikipedia.org/wiki/Black_Mirror), specifically:
   - [S3E4: San Junipero](https://en.wikipedia.org/wiki/San_Junipero)
   - [S2E4: White Christmas](https://en.wikipedia.org/wiki/White_Christmas_(Black_Mirror))
+- [Pantheon](https://en.wikipedia.org/wiki/Pantheon_(TV_series)) (animated series about uploaded intelligence)
 
 ## Art
 
