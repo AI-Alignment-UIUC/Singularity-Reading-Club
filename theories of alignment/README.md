@@ -16,7 +16,7 @@ The full version, with its change policy, is in [criterion.md](criterion.md) (ve
 
 **C3. Competitiveness.** *Training:* can a lab with a lead afford it? *Performance:* would the result meet the use cases for advanced AI? We also ask whether the alignment tax grows with capability.
 
-**Marks.** ✓ plausible argument or evidence · ~ partial or rests on a strong untested assumption · ✗ a known failure applies and is not addressed · ? the source is silent · n/a not a method. Every mark in a summary names the assumption that would flip it. C2 is the weakest of its parts, and a merely statistical argument can earn at most ~.
+**Marks.** ✓ plausible argument or evidence · ~ partial: the source gives an argument, but it rests on an untested assumption or only holds in some settings · ✗ a known failure applies and is not addressed · ? the source is silent · n/a not a method. Every mark in a summary names the assumption that would flip it. C2 is the weakest of its parts, and a merely statistical argument can earn at most ~.
 
 **Recursive step rules.** The analysis is a tree, and the same rules apply at every layer, in the style of [Wu et al. (2021)](papers/wu-2021-recursive-summarization.md):
 1. *Sources:* quote the paper with section numbers, and say what couldn't be read.
@@ -45,9 +45,11 @@ The full version, with its change policy, is in [criterion.md](criterion.md) (ve
 
 ## Layer 2. Comparison grid
 
+Cells are copied from each summary's verdict line. **No method gets ✓ on scale invariance.** That is a result, not a gap: a ✓ needs an argument that holds at every capability level, and the only such arguments in the set (debate's PSPACE theorem, amplification's HCH limit) assume idealized players. Everything else is evidence from one or a few model sizes, which the criterion caps at ~. Each summary's C2 section has the full check (repeated step, invariant, error behavior, phase transitions, exact vs. statistical, measurability).
+
 Cells are copied from each summary's verdict line. Rows are grouped by the step the method repeats, since methods that share a step share failure modes. Hubinger's versions of a method (P*n*) can grade differently from the original paper, because he pairs each with an inner-alignment safeguard and grades his own variant.
 
-| Method | Repeated step | Human's role | C1a outer | C1b inner | C2 scale | C3a train | C3b perf |
+| Method | Repeated step | Human's role | Outer alignment (C1a) | Inner alignment (C1b) | Scale invariance (C2) | Training cost (C3a) | Performance (C3b) |
 |---|---|---|---|---|---|---|---|
 | **Decompose and recombine** | | | | | | | |
 | [Iterated amplification (Christiano 2018)](papers/christiano-2018-amplification.md) | decompose, recombine, distill | decomposer | ~ | ✗ | ~ | ~ | ~ |
