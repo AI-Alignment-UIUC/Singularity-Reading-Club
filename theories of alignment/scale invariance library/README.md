@@ -4,8 +4,6 @@ Papers from outside AI alignment that describe scale invariance precisely: fract
 
 It serves criterion **C2** in [criterion.md](../criterion.md) (C2a to C2f). Nothing here changes the criterion; suggestions are listed under [Suggestions for C2](#suggestions-for-c2) for Evan to decide on.
 
-> **Links into `../papers/` and `../criterion.md`** point at files added by the theories-of-alignment PR (#7). They resolve once that PR is merged.
-
 ---
 
 ## The six lessons
