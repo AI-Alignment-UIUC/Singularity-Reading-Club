@@ -1,5 +1,5 @@
 # Singularity Reading Club
-Founded June 2025, affiliated with [AI Alignment @ Illinois](https://aialignmentillinois.org/)
+Founded June 2025, affiliated with AIA@Illinois
 
 ![Singularity Reading Club](./booksrc.png)
 
