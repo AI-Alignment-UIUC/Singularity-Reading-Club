@@ -1,4 +1,5 @@
 # Singularity Reading Club
+Founded June 2025
 
 ![Singularity Reading Club](./booksrc.png)
 
