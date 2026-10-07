@@ -2,7 +2,7 @@
 
 The Singularity Reading Club's art collection. Every piece in this folder has its own section below, so you can link straight to one (for example `images/README.md#drawing-hands`).
 
-Back to the [reading list](../README.md#art).
+Part of the club's [media index](../media/README.md). Back to the [reading list](../README.md#art).
 
 ## Contents
 
