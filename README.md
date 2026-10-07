@@ -74,6 +74,7 @@ Scalable oversight and alignment proposals:
 - [Black Mirror](https://en.wikipedia.org/wiki/Black_Mirror), specifically:
   - [S3E4: San Junipero](https://en.wikipedia.org/wiki/San_Junipero)
   - [S2E4: White Christmas](https://en.wikipedia.org/wiki/White_Christmas_(Black_Mirror))
+  - [S3E3: Shut Up and Dance](https://en.wikipedia.org/wiki/Shut_Up_and_Dance_(Black_Mirror))
 - [Pantheon](https://en.wikipedia.org/wiki/Pantheon_(TV_series)) (animated series about uploaded intelligence)
 
 ## Art
@@ -91,11 +92,12 @@ Scalable oversight and alignment proposals:
 
 ## Music
 
-- [Jon Hopkins](https://en.wikipedia.org/wiki/Jon_Hopkins)
-- [Flume](https://en.wikipedia.org/wiki/Flume_(musician))
-- [Yeat](https://en.wikipedia.org/wiki/Yeat)
-- [Brian Eno](https://en.wikipedia.org/wiki/Brian_Eno)
-- [Aphex Twin](https://en.wikipedia.org/wiki/Aphex_Twin)
-- [Daft Punk](https://en.wikipedia.org/wiki/Daft_Punk)
-- [A. G. Cook](https://en.wikipedia.org/wiki/A._G._Cook) / [Charli XCX](https://en.wikipedia.org/wiki/Charli_XCX)
-- [Metallica](https://en.wikipedia.org/wiki/Metallica)
+| Album | Artist |
+| --- | --- |
+| [Singularity](https://en.wikipedia.org/wiki/Singularity_(Jon_Hopkins_album)) | [Jon Hopkins](https://en.wikipedia.org/wiki/Jon_Hopkins) |
+| [Hi This Is Flume](https://en.wikipedia.org/wiki/Hi_This_Is_Flume) | [Flume](https://en.wikipedia.org/wiki/Flume_(musician)) |
+| [Lyfë](https://en.wikipedia.org/wiki/Lyf%C3%AB) | [Yeat](https://en.wikipedia.org/wiki/Yeat) |
+| [Brat](https://en.wikipedia.org/wiki/Brat_(album)) | [Charli XCX](https://en.wikipedia.org/wiki/Charli_XCX) |
+| 333 | [Bladee](https://en.wikipedia.org/wiki/Bladee) |
+| [Random Access Memories](https://en.wikipedia.org/wiki/Random_Access_Memories) | [Daft Punk](https://en.wikipedia.org/wiki/Daft_Punk) |
+| [OK Computer OKNOTOK 1997 2017](https://en.wikipedia.org/wiki/OK_Computer_OKNOTOK_1997_2017) | [Radiohead](https://en.wikipedia.org/wiki/Radiohead) |
