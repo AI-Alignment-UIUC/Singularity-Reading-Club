@@ -79,6 +79,8 @@ Scalable oversight and alignment proposals:
 
 ## Art
 
+The full collection, with a linkable section per piece, is in the [art gallery](./images/README.md).
+
 - [M. C. Escher](https://en.wikipedia.org/wiki/M._C._Escher) paintings and prints ([official gallery](https://mcescher.com/)), e.g. [Drawing Hands](https://en.wikipedia.org/wiki/Drawing_Hands), [Relativity](https://en.wikipedia.org/wiki/Relativity_(M._C._Escher)), [Ascending and Descending](https://en.wikipedia.org/wiki/Ascending_and_Descending), Metamorphosis III
 
 <p align="center"><img src="./images/escher-metamorphosis.jpg" alt="M. C. Escher, Metamorphosis II" width="400"></p>
